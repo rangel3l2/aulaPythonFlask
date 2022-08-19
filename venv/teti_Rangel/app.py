@@ -28,6 +28,10 @@ def lista():
 def unidadeCurricular():
     numero = 30
     return render_template('unidadeCurricular.html')
+@app.route('/conteudoAula')
+def conteudoAula():
+    return render_template('teti_Rangel.html')
+        
         
 if __name__ == "__main__" :    
     app.run(debug= True)
