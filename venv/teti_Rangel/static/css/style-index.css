@@ -1,0 +1,143 @@
+body{
+    margin: 0;
+    padding: 0;
+    
+}
+#container{
+    margin: auto;      
+    max-width: 80%;
+    background-color: #e1e6e2;
+    padding-bottom: 100px;
+    min-height: 800px;
+    border-top: 1px solid transparent;
+   
+}
+.header{
+    min-height: 10%;
+    width: 90%;
+    display: flex;
+    margin: auto;
+
+
+}
+.title  {
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+
+    display: flex;
+    
+
+}
+.title h1 {
+text-align: center;
+}
+.pic{
+    width: 200px;
+    height: 200px;
+    margin-top: 2%;
+    
+  
+
+
+}
+#myPic{
+   
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 29px;
+}
+.vertical{
+    margin-top: 7%;
+    border-top: 5px solid #829486;
+    width: 100%;
+    
+    
+}
+.content{
+    width: 90%;
+    margin: auto;
+
+}
+.content h1{
+    color: #7680e8;
+}
+.content p{
+    color: #7b84e0;
+    font-size: 20px;
+    font-weight: 600;
+}
+#calculator
+{
+ 
+    
+ display: flex;    
+ width: 300px;
+ height: auto;   
+ margin: auto;
+ flex-direction: row-reverse;
+ flex-wrap: wrap;
+ border: #7680e8 5px solid;
+ margin-top: 20%;
+ border-radius: 12px;
+ background-color: #373b3a;
+ 
+}
+#screen{
+   height: 100px;
+   width: 100%;
+   background-color: #44ebd7; 
+   border: #7680e8 5px solid;
+   border-radius: 12px;
+
+
+}
+.button{
+    width: 80px;
+    height: 80px;
+}
+#buttonOperation{
+    margin: auto;
+    width: 50px;
+    height: 50px;
+    flex-direction: column;   
+}
+#buttonOperation h2{
+    text-align: center;
+    color: red;
+}
+#calculatorNumbers{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: auto;
+    margin-top: 2%;
+
+}
+#calculatorNumbers button{
+    
+    align-self: center;
+    border-radius: 14px;
+    
+}
+#divButtonOperation{
+    width: 80%;
+    display: flex;    
+    flex-wrap: wrap;
+    background-color: brown;
+    margin: auto;
+    
+   
+}
+#divButtonOperation button{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    
+
+   
+}

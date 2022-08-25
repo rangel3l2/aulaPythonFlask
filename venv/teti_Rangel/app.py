@@ -32,8 +32,13 @@ def unidadeCurricular():
 def conteudoAula():
     return render_template('teti_Rangel.html')
         
-        
+@app.rout('/calculadora')
+def calculadora():
+    return render_template('calculadora.html')  
+
 if __name__ == "__main__" :    
     app.run(debug= True)
 
+#novaCalculadora
+#conversão alpha numerico para binario
 #flash run --host= 0.0.0.0.
