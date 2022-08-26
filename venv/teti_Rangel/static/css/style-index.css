@@ -8,7 +8,7 @@ body{
     max-width: 80%;
     background-color: #e1e6e2;
     padding-bottom: 100px;
-    min-height: 800px;
+
     border-top: 1px solid transparent;
    
 }
@@ -80,12 +80,13 @@ text-align: center;
  flex-direction: row-reverse;
  flex-wrap: wrap;
  border: #7680e8 5px solid;
- margin-top: 20%;
+ margin-top: 2%;
  border-radius: 12px;
  background-color: #373b3a;
  
 }
 #screen{
+   display: flex;
    height: 100px;
    width: 100%;
    background-color: #44ebd7; 
@@ -93,6 +94,10 @@ text-align: center;
    border-radius: 12px;
 
 
+
+}
+#screenText{
+    margin-left: auto;    
 }
 .button{
     width: 80px;
@@ -124,7 +129,7 @@ text-align: center;
     
 }
 #divButtonOperation{
-    width: 80%;
+    width: 90%;
     display: flex;    
     flex-wrap: wrap;
     background-color: brown;
@@ -136,8 +141,10 @@ text-align: center;
     display: flex;
     align-items: center;
     text-align: center;
+    line-height: 90%;
     
     
 
    
 }
+

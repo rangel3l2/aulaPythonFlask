@@ -5,12 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/style-index.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
     <title>Document</title>
-</head>
+</head> 
 <body>
     <div id="container">
-
+        
     </div>
-    <script src="../static/js/calculadora.js"></script>
+    
+<h1 id="resulted">{{screenText}}</h1>
 </body>
+<script>const resulted = document.getElementById('resulted')
+resulted.innerText = '{{screenText}}'</script>
+<script src="../static/js/calculadora.js"></script>
 </html>
