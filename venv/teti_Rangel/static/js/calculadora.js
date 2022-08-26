@@ -5,11 +5,16 @@ const createCalc = (()=>{
     screen.id = `screen`   
     const calculator = document.createElement('div')
     calculator.id = 'calculator'
+    const divButtonController = document.createElement('div')
+    divButtonController.id = 'divButtonController'   
     const calculatorNumbers = document.createElement('div')
     calculatorNumbers.id = `calculatorNumbers`   
     container.appendChild(calculator)
       //tela calc
     calculator.appendChild(screen)
+    //botão liga desliga
+    calculator.appendChild(divButtonController) 
+       
     // div calc numbers
     calculator.appendChild(calculatorNumbers)   
      //div Button Operation
@@ -19,6 +24,17 @@ const createCalc = (()=>{
     const screenText = document.createElement('h1')
     screen.appendChild(screenText)
     screenText.id='screenText'
+   
+    for (let i = 0; i <=1; i++) {
+        const buttonController = document.createElement('button')
+        buttonController.id = `buttonOperation`
+        divButtonController.appendChild(buttonController)
+        if(i==1){buttonController.innerHTML = `<h5>START</h5>`
+        buttonController.addEventListener('click',()=>{screenText.innerText = 0})}
+        if(i==0){buttonController.innerHTML = `<h5>BACK</h5>`
+        buttonController.addEventListener('click',()=>{screenText.innerText = screenText.innerText.substring(0, screenText.innerText.length - 1)})
+    }
+    }
       
     const length = 11
     //operadores
@@ -56,10 +72,8 @@ const createCalc = (()=>{
                                       
                     
                   });
-                  const resultedCal = document.querySelector('#resulted')
-                 
-                  console.log(resultedCal.innerText)
-                  screenText.innerText = resultedCal.innerText
+                  
+                  
                 // const formEnviar = document.createElement('form')
                 // formEnviar.setAttribute('method','POST')
                 // formEnviar.setAttribute('action','/lerCalculo')
@@ -100,11 +114,11 @@ const createCalc = (()=>{
         if(i==10)buttonNumber.innerHTML=`<h1>.</h1>`
         if(i==11)buttonNumber.innerHTML=`<h1>Conv Biná</h1>`       
          buttonNumber.addEventListener('click',()=>{
-            
+            if(screenText.innerText==0)screenText.innerText = '' 
             screenText.innerText +=`${buttonNumber.innerText}` 
         })
         buttonNumber.addEventListener('keypress',(event)=>{
-            
+            if(screenText.innerText==0)screenText.innerText = ''
             if(event.key){
                 
                 screenText.innerText += `${event.key}`    

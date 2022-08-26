@@ -129,6 +129,7 @@ text-align: center;
     
 }
 #divButtonOperation{
+    padding-bottom: 2px;
     width: 90%;
     display: flex;    
     flex-wrap: wrap;
@@ -146,5 +147,21 @@ text-align: center;
     
 
    
+}
+#divButtonController {
+   
+    display: flex;
+    width: 50%;      
+    flex-wrap: wrap;
+  
+    margin: auto;
+    padding-top: 2px;
+    
+}
+#divButtonController button{
+    text-align: center;
+    display: flex;
+    text-align: center;
+    line-height: 90%;
 }
 
