@@ -45,7 +45,7 @@ const createCalc = (()=>{
         if(i==0)buttonOperation.innerHTML = `<h1>+</h1>`
         if(i==1)buttonOperation.innerHTML = `<h1>-</h1>`
         if(i==2)buttonOperation.innerHTML = `<h1>*</h1>`
-        if(i==3)buttonOperation.innerHTML = `<h1>%</h1>`
+        if(i==3)buttonOperation.innerHTML = `<h1>/</h1>`
         if(i==4){
             buttonOperation.innerHTML = `<h1>=</h1>`
             buttonOperation.addEventListener('click',()=>{
@@ -56,10 +56,11 @@ const createCalc = (()=>{
                     url: '/calculadora',
                     datatype : JSON,
                     data: {
-                        screenText : screenText.innerText
+                        screenText : screenText.innerText,
+                        action : 'calcular'
                     },
                     success : function(response){
-                        response?console.log(response.resulted):response.data = 0
+            
                       //  console.log(`response${response.success}`)
                         screenText.innerText = response.resulted
                         
@@ -112,7 +113,38 @@ const createCalc = (()=>{
         
         }
         if(i==10)buttonNumber.innerHTML=`<h1>.</h1>`
-        if(i==11)buttonNumber.innerHTML=`<h1>Conv Biná</h1>`       
+        if(i==11){
+            buttonNumber.innerHTML=`<h1>Conv Biná</h1>`
+            buttonNumber.addEventListener('click',()=>{
+                console.log(screenText.innerText)
+                $.ajax({
+                    type: "POST",
+                    url: '/calculadora',
+                    datatype : JSON,
+                    data: {
+                        screenText : screenText.innerText,
+                        action : 'convertToBin'
+                    },
+                    success : function(response){
+                        
+                      //  console.log(`response${response.success}`)
+                        screenText.innerText = response.resulted
+                        
+                    },
+                    error: ((response)=>{
+                        console.log(`response${response}`)
+    
+                    })
+                    
+                                      
+                    
+                  });
+            })
+            
+        } 
+    if(i<11){
+
+           
          buttonNumber.addEventListener('click',()=>{
             if(screenText.innerText==0)screenText.innerText = '' 
             screenText.innerText +=`${buttonNumber.innerText}` 
@@ -120,11 +152,11 @@ const createCalc = (()=>{
         buttonNumber.addEventListener('keypress',(event)=>{
             if(screenText.innerText==0)screenText.innerText = ''
             if(event.key){
-                
+
                 screenText.innerText += `${event.key}`    
             }
         })
-        
+    }
         
     
     }
