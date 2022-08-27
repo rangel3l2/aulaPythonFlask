@@ -45,7 +45,7 @@ const createCalc = (()=>{
         if(i==0)buttonOperation.innerHTML = `<h1>+</h1>`
         if(i==1)buttonOperation.innerHTML = `<h1>-</h1>`
         if(i==2)buttonOperation.innerHTML = `<h1>*</h1>`
-        if(i==3)buttonOperation.innerHTML = `<h1>/</h1>`
+        if(i==3)buttonOperation.innerHTML = `<h1>%</h1>`
         if(i==4){
             buttonOperation.innerHTML = `<h1>=</h1>`
             buttonOperation.addEventListener('click',()=>{
@@ -115,20 +115,31 @@ const createCalc = (()=>{
         if(i==10)buttonNumber.innerHTML=`<h1>.</h1>`
         if(i==11){
             buttonNumber.innerHTML=`<h1>Conv Biná</h1>`
+            let cont  = 0
             buttonNumber.addEventListener('click',()=>{
-                console.log(screenText.innerText)
+                cont ++
+                if(cont%2 ==0){ buttonNumber.innerHTML=`<h1>Conv Biná</h1>`
+            }else{buttonNumber.innerHTML=`<h1>Conv Real</h1>`}
+               
+                
+                console.log(cont)
                 $.ajax({
                     type: "POST",
                     url: '/calculadora',
                     datatype : JSON,
                     data: {
                         screenText : screenText.innerText,
-                        action : 'convertToBin'
+                        action : 'convertToBin',
+                        cont : cont
+                        
                     },
                     success : function(response){
                         
                       //  console.log(`response${response.success}`)
-                        screenText.innerText = response.resulted
+                     
+                            screenText.innerText = response.resulted 
+                           
+                      
                         
                     },
                     error: ((response)=>{

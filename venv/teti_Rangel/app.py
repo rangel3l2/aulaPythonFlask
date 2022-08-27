@@ -8,7 +8,7 @@ from py_expression_eval import Parser
 
 
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
@@ -24,8 +24,12 @@ def hello_world():
 
 def teti_rangel():
     return render_template('teti_rangel.html', ip = request.remote_addr)
-        
-
+@app.route('/soma')   
+def soma():
+     if request.method == 'GET':
+        soma = request.form.get
+        print(soma)     
+ 
 
 @app.route('/lerForm', methods = ['GET','POST'])
 
@@ -63,13 +67,21 @@ def calculadora():
             print(expr.evaluate({}))
             results = {'resulted' : expr.evaluate({})}
             return  results
-        if request.form.get('action') == 'convertToBin':
-            screenText = request.form.get('screenText')
-            parser = Parser()
-            expr = parser.parse(screenText)            
-            binary = format(expr.evaluate({}),'b')
-            print(binary)
-            return {'resulted' : binary}
+        if request.form.get('action') == 'convertToBin': 
+            screenText = request.form.get('screenText')         
+            cont = request.form.get('cont')
+            intCont =  int(cont)
+            if(intCont%2==0):
+                binary= int(screenText, 2)    
+                return {'resulted':binary}
+              
+            else:
+                parser = Parser()
+                expr = parser.parse(screenText)            
+                binary = format(expr.evaluate({}),'b')
+                return {'resulted' : binary,}
+               
+          
             
 #fim        
        
