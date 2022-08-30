@@ -1,0 +1,50 @@
+.display{
+    display: flex;
+}
+#calculadora{
+    
+    margin: auto;
+    background: #000;
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    padding: 1%;
+    
+   
+}
+#Tela{
+    height: 100px;
+    width: 100%;
+    margin: auto;
+    background:#ccc9c0;
+    border-radius: 12px;
+    border: solid 2px black;
+    font-weight: 600;
+    font-size: 30px;
+
+}
+#controles{
+   border-radius: 12;
+    width: 100%;    
+   justify-content: center;
+    background:#807e79;
+    display: flex;
+    
+}
+.botaoControles{
+    border-radius: 12px;
+    
+}
+#butaoControleid2{
+    margin-left: auto;
+    border-radius: 12px;
+  
+   
+    background:#e6b029; 
+}
+.botaoGerais{
+    width: 50.3px;
+    height: 50.3px;
+    border-radius: 12px;
+    
+}

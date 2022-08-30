@@ -80,7 +80,15 @@ def calculadora():
                 expr = parser.parse(screenText)            
                 binary = format(expr.evaluate({}),'b')
                 return {'resulted' : binary,}
-               
+
+@app.route('/calculadoraAlfanumerica', methods = ['POST','GET'])
+
+def calculadoraAlfanumerica(): 
+    if request.method == 'GET':
+        return render_template('calculadoraAlfanumerica.html')
+    if request.method == 'POST':
+        return 'sou emo'
+
           
             
 #fim        
