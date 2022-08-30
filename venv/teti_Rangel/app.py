@@ -3,6 +3,7 @@ from json import JSONEncoder
 import numbers
 import string
 from unittest import result
+from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request , jsonify
 from py_expression_eval import Parser
 
@@ -12,7 +13,7 @@ app = Flask(__name__)
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
-    return jsonify({'ip': request.remote_addr}), 200 
+    return {'ip': request.remote_addr}, 200 
 
 @app.route("/")
 
@@ -87,7 +88,17 @@ def calculadoraAlfanumerica():
     if request.method == 'GET':
         return render_template('calculadoraAlfanumerica.html')
     if request.method == 'POST':
-        return 'sou emo'
+        if request.form.get('action')=='converter':
+            intCont =  int(request.form.get('cont'))
+            if( intCont % 2 ==1):
+                screenText = request.form.get('screenText')
+                resulted =  ' '.join(format(ord(c), 'b') for c in screenText)                
+                return jsonify({'resulted':resulted})
+            else:
+                screenText = request.form.get('screenText')
+                resulted = ''.join(chr(int(screenText[i*8:i*8+8],2)) for i in range(len(screenText)//8))
+                return jsonify({'resulted': resulted})
+
 
           
             

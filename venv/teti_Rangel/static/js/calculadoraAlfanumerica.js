@@ -19,7 +19,7 @@ function createButton(){
      const botao = document.createElement('div')
      botao.id= 'botao'
     
-    for (let i = 0; i < 3; i++){
+    for (let i = 0; i < 5; i++){
        
         const buttonShufle = document.createElement('button')
         calculadora.appendChild(Tela)
@@ -44,6 +44,17 @@ function createButton(){
         if(i==2){
 
             buttonShufle.innerHTML=`<h2>ConvBin</h2>`
+            buttonShufle.addEventListener('click',()=>{})
+        }
+        if(i==3){
+
+            buttonShufle.innerHTML=`<h2>VOLTAR</h2>`
+            buttonShufle.addEventListener('click',()=>{Tela.innerHTML = Tela.innerHTML.substring(0, Tela.innerHTML.length - 1)})
+        }
+        
+        if(i==4){
+
+            buttonShufle.innerHTML=`<h2>START</h2>`
             buttonShufle.addEventListener('click',()=>{})
         }
         
@@ -79,19 +90,31 @@ function createButtonGeneral(){
 
  function sendData(tela){
     const converter = document.getElementById('butaoControleid2')
+    let cont = 0
     converter.addEventListener('click',()=>{
+        if(cont %2 == 1){
+            converter.innerHTML = `<h2>convBin</h2>`
+        }
+        else
+        {
+            converter.innerHTML = `<h2>convText</h2>`
+        }
+       
+
+        cont ++
     $.ajax({
         type: "POST",
         url: '/calculadoraAlfanumerica',
         datatype : JSON,
         data: {
             screenText : tela.innerHTML,
-            action : 'converter'
+            action : 'converter',
+            cont: cont
         },
         success : function(response){
-
-          //  console.log(`response${response.success}`)
-            screenText.innerText = response.resulted
+            tela.innerHTML = response.resulted.toString()  
+            console.log(`response${response.success}`)
+            
             
         },
         error: ((response)=>{
@@ -102,7 +125,7 @@ function createButtonGeneral(){
                           
         
       });
-      tela.innerHTML = ''
+      
     })
  }   
     
