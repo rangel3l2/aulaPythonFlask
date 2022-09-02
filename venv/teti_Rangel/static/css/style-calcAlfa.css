@@ -68,3 +68,17 @@
     cursor: pointer;  
    
 }
+#telaGrande{
+    position: absolute;
+    
+    border-bottom: 1px dotted black;  
+    background-color: antiquewhite;
+    height: 100px;
+    width:100%;
+    margin: auto;    
+    border-radius: 12px;
+    border: solid 2px black;
+    font-weight: 600;
+    font-size: 30px;
+    
+}

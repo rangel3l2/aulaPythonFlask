@@ -126,9 +126,24 @@ function createButtonGeneral(){
         
       });
       
+
     })
- }   
     
+ }
+
+ IncreaseScreen()   
 
 
  }
+    function IncreaseScreen(){
+        const Tela = document.getElementById('Tela')
+        Tela.addEventListener('mouseover',()=>{
+            Tela.id = 'telaGrande'
+           const arrayTela =  Tela.innerHTML.split('')
+           for(let i = 0; i < arrayTela.length; i++){
+                
+           }
+        })
+           
+        
+    }

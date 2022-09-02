@@ -1,0 +1,24 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+#container{
+    width: 100%;
+    
+    margin: auto;
+    display: flex;
+}
+#squares{
+    margin: auto;
+    width: 512px;
+    height: 512px;
+    flex-wrap: wrap;    
+    display: flex;
+
+}
+.square{
+    
+    width: 1px;
+    height: 1px;
+    
+}

@@ -1,3 +1,4 @@
+from ast import If
 from crypt import methods
 from json import JSONEncoder
 import numbers
@@ -6,7 +7,7 @@ from unittest import result
 from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request , jsonify
 from py_expression_eval import Parser
-
+from random import randint
 
 
 app = Flask(__name__) 
@@ -99,6 +100,22 @@ def calculadoraAlfanumerica():
                 resulted = ''.join(chr(int(screenText[i*8:i*8+8],2)) for i in range(len(screenText)//8))
                 return jsonify({'resulted': resulted})
 
+@app.route('/pixel', methods = ['GET', 'POST'])
+def Pixel():
+    if request.method == 'GET':
+        return render_template('pixel.html')
+    if request.method == 'POST':
+        if(request.form.get('action') == 'randomColors'):
+
+            colors = []
+            for i in range(262144):
+                colors.append('#%06X' % randint(0, 0xFFFFFF))
+            return {'resulted' : colors}
+
+
+
+
+ 
 
           
             
