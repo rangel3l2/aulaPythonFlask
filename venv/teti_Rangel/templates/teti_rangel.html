@@ -31,12 +31,16 @@
             Semana 1
         </h1>
         <p>
-            Conteúdo: Fazer reprodução do documento Unidades Curriculares
+            Conteúdo: 
         </p>
-        <a href="http://{{ request.host.split(':')[0] }}:5000/unidadeCurricular"><h3>Unidades Curriculares</h3></a>
-        <div class="vertical">
+        <ul>
+            <li><h3>Fazer reprodução do documento Unidades Curriculares</h3></li>
 
-        </div>
+        
+
+        <a href="http://{{ request.host.split(':')[0] }}:5000/unidadeCurricular"><h3>Unidades Curriculares</h3></a>
+        </ul>
+        <div class="vertical"></div>
       
         <h1>
             Semana 2
@@ -44,6 +48,12 @@
         <p>
             Conteúdo:
         </p>
+        <ul>
+            <li><h3>Inseri o nome digitado debaixo terminal</h3></li>
+            <a href="http://{{ request.host.split(':')[0] }}:5000/lerForm"><h3>Formulário de inserção do nome</h3></a>
+            <li><h3>Tudo que estiver na lista em python vai aparecer na tela</h3></li>
+            <a href="http://{{ request.host.split(':')[0] }}:5000/lista"><h3>Formulário de inserção do nome</h3></a>
+        </ul>
         <div class="vertical">
 
         </div>
@@ -51,96 +61,46 @@
         <h1>
             Semana 3
         </h1>
-        <p>
-            Conteúdo: Manipulação e envio de dados entre Python e HTML
-        </p>
-        <li>
-            Texto em HTML 10*4            
-        </li>
-        <li>
-            Executar Código em Python: 40
-
-        </li>
-        <li>
-         Retornar e capturar valores de uma lista
-         <ol>
-            1.Alex
-         </ol>    
-         <ol>
-            2.Samsung
-         </ol>
-         <ol>
-            3.Stela
-         </ol>
-        
-        </li>
-        <li>
-            Retornar e capturar valores de uma lista:
-            <ol>
-                1.Alex
-            </ol>
-            <ol>
-                2.Samsung
-            </ol>
-            <ol>
-                3.Stela
-            </ol>
-            <ol>
-                4.Caio
-            </ol>
-        </li>
-        <form action="/lerForm" method="POST">
-            
-            <div class="button">   
-                <input placeholder="Digite novo Nome" type="text" id="name" name="nome" />
-            
-           
-           
-                <button type="submit" >Adicionar</button>
-            </div>
+        <p>Conteúdo: Manipulação e envio de dados entre Python e HTML</p>
+        <ul>
+            <li><h3>Retornar os valores de captura de uma lista</h3></li>  
+            <a href="http://{{ request.host.split(':')[0] }}:5000/addNomeLista"><h3>Formulário para adicionar nome em lista</h3></a>
        
-        <li>Retornar e capturar os valores de um dicionario
-            <ul>
-                1.Alex
-
-            </ul>
-            <ul>
-                2.Samsung
-            </ul>
-            <ul>
-                3.Stela
-            </ul>
-        </li>
-        <input placeholder="Digite novo Nome" type="text" id="name" name="nome" />
-            
-        </form>
+        <li><h3>Retornar e capturar os valores de um dicionario</h3></li>
+        <a href="http://{{ request.host.split(':')[0] }}:5000/addNomeDicionario"><h3>Formulário para adicionar nome em dicionário</h3></a>
+       
+        </ul>
         <div class="vertical">
 
         </div>
         <h1>
             Semana 4
         </h1>
-        <p>
-            <p>
-                Conteúdo: 
+            <p>Conteúdo:</p> 
                 <ul>
                    <li> Fazer calculadora que faça operações básicas e  acrescentar nessa calculadora conversão de decimal para binário</li>
-                </ul>
-                <ul>
-                    <a href="http://{{ request.host.split(':')[0] }}:5000/calculadora"><h3>Calculadora 1</h3></a>
-                </ul>
+                
+                
+                    <a href="http://{{ request.host.split(':')[0] }}:5000/calculadora"><h3>Calculadora Simples</h3></a>
+                    
              
-                <ul>
+                
                    <li>
                     Crie outra calculadora alfanumérica que converta texto em binário
                    </li>
-                   <ul>
-                    <a href="http://{{ request.host.split(':')[0] }}:5000/calculadoraAlfanumerica"><h3>Calculadora 1</h3></a>
-                </ul>
+                
+                    <a href="http://{{ request.host.split(':')[0] }}:5000/calculadoraAlfanumerica"><h3>Calculadora Alfanumerica</h3></a>
+                 
 
                 </ul>
-            </p>
-        </p>
+
+            <div class="vertical"></div>
+            <h1>Semana 5</h1>
+            <p>Conteúdo: </p> 
+            <ul>
+                <li><h3> Preencha uma quadrado de 512px por 512 px com div de 1 pixel cada</h3></li>
+                <a href="http://{{ request.host.split(':')[0] }}:5000/pixel"><h3>Quadrado preenchido cores randômica</h3></a>
+            </ul>        
      </div>
      
     </div>

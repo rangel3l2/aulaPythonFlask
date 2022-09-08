@@ -8,9 +8,11 @@ from xml.etree.ElementTree import tostring
 from flask import Flask, render_template, request , jsonify
 from py_expression_eval import Parser
 from random import randint
+from flask import session
 
 
 app = Flask(__name__) 
+
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
@@ -49,6 +51,30 @@ def lista():
     listaNomes = ['pedro', 'kleber', 'vanessa']
     return render_template('lista.html', listaNomes = listaNomes)
     
+
+
+ 
+@app.route('/addNomeLista', methods = ['GET','POST'])
+
+def addNomeLista():
+    lista = []
+    if request.method == 'GET':
+     
+        return render_template('addNomeLista.html')
+        
+    if request.method =='POST': 
+        nome = request.form.get('nome') 
+        lista.append(nome)
+        return render_template('addNomeLista.html', nome = lista)
+             
+@app.route('/addNomeDicionario', methods = ['GET','POST'])
+def addNomeDicionario():
+    if request.method == 'GET':
+        return render_template('addNomeDicionario.html')
+        
+    if request.method =='POST':
+       nome = request.form.get('nome')
+       return render_template('addNomeDicionario.html', nome = nome) 
 @app.route('/unidadeCurricular')
 
 def unidadeCurricular():

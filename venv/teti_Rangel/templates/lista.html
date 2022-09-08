@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/formStyle.css">
     <title>Document</title>
 </head>
 <body>
-    {%for nome in listaNomes %}
-    <li>
-        {{nome}}
-    </li>
-    {% endfor %}
+    <div id="container">
+        <h1>Apresentamos dados que foram inseridos em uma lista no backend</h1>
+        {%for nome in listaNomes %}
+        <li>
+            {{nome}}
+        </li>
+        {% endfor %}
+    </div>
+   
     
 </body>
 </html>
