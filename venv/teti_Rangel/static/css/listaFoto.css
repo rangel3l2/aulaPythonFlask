@@ -9,23 +9,7 @@ body{
     background-color: #e1e6e2;
     padding-bottom: 100px;
     min-height: 500px;
-    border-top: 1px solid transparent;
-    
+    border-top: 1px solid transparent;   
     
    
-}
-#squares{
-    padding-top: 2%;
-    margin: auto;
-    width: 512px;
-    height: 512px;
-    flex-wrap: wrap;    
-    display: flex;
-
-}
-.square{
-    
-    width: 1px;
-    height: 1px;
-    
 }

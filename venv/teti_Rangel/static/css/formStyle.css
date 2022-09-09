@@ -30,19 +30,31 @@ body{
     width: 100%;
     min-height: 200px;
     background-color: #71db6e;
+    display: flex;
+    
+}
+.space {
+    border-top: 1px dashed green;
+    width: 100%;
+  
+}
+ol{
+    margin: auto;
+    padding: 2%;
 }
  h1, li{
+    font-size: 25px;
+    margin-bottom: 15px;
+    padding: 2%;
+    border-radius: 12px;
+    border: 1px solid green;
     
-    margin: auto;
-    text-align: center;
-    
-    
-    
-   
+    text-align: center;   
    
     box-sizing: border-box;
     
 }
+
 div{
     margin-top: 3px;
     
@@ -62,3 +74,16 @@ input[type=text] {
     margin: 8px 0;
     box-sizing: border-box;
   }
+  table tr td{
+    border: 1px black solid;
+    
+}
+
+table{
+    border-collapse: collapse ;
+    width: 90%;
+    margin: auto;
+    
+        
+    
+}     

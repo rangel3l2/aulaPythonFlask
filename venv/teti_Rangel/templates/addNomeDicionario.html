@@ -10,28 +10,41 @@
 <body>
     <div id="container">
         <div id="formDiv">
-            <h1>Adicione chave valor em dicionário:</h1>
-            <form action="/addNomeLista" method="POST">
-                
-                
-                 
+            <h1>Adicione aluno e nota em dicionário:</h1>
+            <form action="/addNomeDicionario" method="POST">             
                    
-                    <input type="text" id="name" placeholder="Digite uma palavra" name="nome" />
-                    <input type="text" id="name" placeholder="Digite o significado" name="nome" />
+                    <input type="text" id="name" placeholder="Digite uma nome" name="nome" />
+                    <input type="text" id="name" placeholder="Digite uma nota" name="nota" />              
                 
-               
-                
-                    <button type="submit">Adicionar</button>
-                
-                
-                
+                    <button type="submit">Adicionar</button>      
                     
             </form>
-            <div id="results">
-
-            </div>
+           
     </div>
+    <div id="results">
+        <table>
+            
+        {%for item in user %}
+    <tr>
+        <td>
+        
+            {{item.nome}}
+        </td>
+        <td>
+        
+            {{item.nota}}
+        </td>
+    </tr>
+        {% endfor %}
+        
+    
+          
 
+       
+    
+    </table>
+
+    </div>
     </div>
     
 </body>

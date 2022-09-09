@@ -20,9 +20,9 @@ def get_my_ip():
 
 @app.route("/")
 
-def hello_world():
+def redirect():
 
-    return "<p>Olá Mundo!</p>"
+    return render_template('teti_rangel.html')
 
 @app.route('/teti_rangel')
 
@@ -53,11 +53,11 @@ def lista():
     
 
 
- 
+
 @app.route('/addNomeLista', methods = ['GET','POST'])
 
-def addNomeLista():
-    lista = []
+def addNomeLista(lista = []):
+   
     if request.method == 'GET':
      
         return render_template('addNomeLista.html')
@@ -65,16 +65,24 @@ def addNomeLista():
     if request.method =='POST': 
         nome = request.form.get('nome') 
         lista.append(nome)
-        return render_template('addNomeLista.html', nome = lista)
-             
+        print(lista)
+        return render_template('addNomeLista.html', listaNomes = lista)
+
+
+          
 @app.route('/addNomeDicionario', methods = ['GET','POST'])
-def addNomeDicionario():
+def addNomeDicionario(user = [{}]):
     if request.method == 'GET':
         return render_template('addNomeDicionario.html')
         
     if request.method =='POST':
-       nome = request.form.get('nome')
-       return render_template('addNomeDicionario.html', nome = nome) 
+        nome = request.form.get('nome')
+        nota = request.form.get('nota')
+        KEYS = ['nome', 'nota']
+        values = [nome, nota]
+        user.append(dict(zip(KEYS, values)))
+        return render_template('addNomeDicionario.html', user = user ) 
+
 @app.route('/unidadeCurricular')
 
 def unidadeCurricular():
@@ -127,17 +135,28 @@ def calculadoraAlfanumerica():
                 return jsonify({'resulted': resulted})
 
 @app.route('/pixel', methods = ['GET', 'POST'])
-def Pixel():
+def Pixel(numCols = 512, numRows = 512):
     if request.method == 'GET':
         return render_template('pixel.html')
     if request.method == 'POST':
         if(request.form.get('action') == 'randomColors'):
-
-            colors = []
-            for i in range(262144):
-                colors.append('#%06X' % randint(0, 0xFFFFFF))
-            return {'resulted' : colors}
-
+            myArray = [['#%06X' % randint(0, 0xFFFFFF) for i in range(numCols)] for j in range(numRows)]
+            myArray.append('#%06X' % randint(0, 0xFFFFFF))
+                       
+          
+            return {'resulted' : myArray}
+listaFoto = []
+@app.route('/addFotoLista', methods = ['GET', 'PUT'])
+def addFotoLista():
+   
+    if request.method == 'GET':
+     
+        return render_template('addFotoLista.html')
+        
+    if request.method =='PUT': 
+        nome = request.form.get('nome') 
+        lista.append(nome)        
+        return render_template('addFotoLista.html', listaFoto = listaFoto)
 
 
 
@@ -148,7 +167,7 @@ def Pixel():
 #fim        
        
 if __name__ == "__main__" :    
-    app.run(debug= True)
+   app.run(debug= True) 
 
 #novaCalculadora
 #conversão alpha numerico para binario

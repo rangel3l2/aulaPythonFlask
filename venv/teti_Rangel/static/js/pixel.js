@@ -21,19 +21,25 @@ $.ajax({
     
                       
     
-function createPixelColor(color){  
+async function createPixelColor(color){  
+    try{
+        const container = document.getElementById('container')
+        const squares = document.createElement('div')
+        squares.id = 'squares'
+        container.appendChild(squares)
+    for(let i = 0; i<512; i++){
+        for(let j = 0; j<512; j ++){
+            const square = document.createElement('div')
+            square.className = 'square'
+            square.id = `id${i}`
+            squares.appendChild(square) 
+            square.style.backgroundColor = await color[i][j]
 
-    const container = document.getElementById('container')
-    const squares = document.createElement('div')
-    squares.id = 'squares'
-    container.appendChild(squares)
-for(let i = 0; i<262144; i++){
-    const square = document.createElement('div')
-    square.className = 'square'
-    square.id = `id${i}`
-    squares.appendChild(square)
+    }
+   
 
-        square.style.backgroundColor = color[i]
-
+    }
+    }catch(error){
+    console.log(error)
 }
 }

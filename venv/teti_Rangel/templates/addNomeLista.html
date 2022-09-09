@@ -10,31 +10,27 @@
 <body>
     <div id="container">
         <div id="formDiv">
+
             <h1>Adicione nome em lista:</h1>
-            <form action="/addNomeLista" method="POST">
-                
-                
-                 
+
+            <form action="/addNomeLista" method="POST">                 
                    
-                    <input type="text" id="name" placeholder="Escreva um nome" name="nome" />
-                
+                    <input type="text" id="name" placeholder="Escreva um nome" name="nome" />              
                
                 
-                    <button type="submit">Adicionar</button>
-                
-                
-                
+                    <button type="submit">Adicionar</button>          
                     
             </form>
-    </div>
+        </div>
     <div id="results">
-       
-        {%for item in nome %}
+       <ol>
+        {%for item in listaNomes %}
         <li>
             {{item}}</br>
         </li>
+       
         {% endfor %}
-      
+      </ol>
     </div>
 
     
