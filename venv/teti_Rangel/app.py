@@ -2,16 +2,28 @@ from ast import If
 from crypt import methods
 from json import JSONEncoder
 import numbers
+import os
 import string
 from unittest import result
 from xml.etree.ElementTree import tostring
-from flask import Flask, render_template, request , jsonify
+from flask import Flask, render_template,redirect, request , jsonify
 from py_expression_eval import Parser
 from random import randint
-from flask import session
+from PIL import Image
+import base64
+import io
+
 
 
 app = Flask(__name__) 
+
+
+
+app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
+app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.webp']
+app.config['UPLOAD_PATH'] = 'uploads'
+app.config['IMAGE_UPLOADS'] = '/home/rangel3l/Documents/tads/AlexTETI/aulaPythonFlask/venv/teti_Rangel/static/img-upload'
+
 
 
 @app.route("/get_my_ip", methods=["GET"])
@@ -20,7 +32,7 @@ def get_my_ip():
 
 @app.route("/")
 
-def redirect():
+def redirecionaLocalhost():
 
     return render_template('teti_rangel.html')
 
@@ -145,18 +157,27 @@ def Pixel(numCols = 512, numRows = 512):
                        
           
             return {'resulted' : myArray}
-listaFoto = []
-@app.route('/addFotoLista', methods = ['GET', 'PUT'])
-def addFotoLista():
+
+@app.route('/addFotoLista', methods = ['GET', 'POST'])
+def addFotoLista(listaFile = [], listaFilename = []):
    
     if request.method == 'GET':
-     
+        listaFile = ''
         return render_template('addFotoLista.html')
         
-    if request.method =='PUT': 
-        nome = request.form.get('nome') 
-        lista.append(nome)        
-        return render_template('addFotoLista.html', listaFoto = listaFoto)
+    if request.method =='POST':         
+        
+        file = request.files['image']   
+        filename = file.filename.split('.') 
+        if file.filename != '':
+            image_string = base64.b64encode(file.read())
+            image_string = image_string.decode('utf-8')
+            listaFilename.append(filename[0])
+            listaFile.append(image_string)
+           
+            return render_template('addFotoLista.html',listaFile = listaFile, listaFilename = listaFilename, zip=zip)
+        return render_template('addFotoLista.html')
+
 
 
 

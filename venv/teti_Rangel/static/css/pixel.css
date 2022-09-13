@@ -23,6 +23,10 @@ body{
     display: flex;
 
 }
+img{
+    align-self: center;
+    margin: auto;
+}
 .square{
     
     width: 1px;

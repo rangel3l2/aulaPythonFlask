@@ -22,7 +22,8 @@ body{
     background-color: #c9a128;
     padding: 2%;
     border-radius: 12px;
-    
+    display: flex;
+    flex-direction: column;
 
     
 }
@@ -31,6 +32,8 @@ body{
     min-height: 200px;
     background-color: #71db6e;
     display: flex;
+    flex-wrap: wrap;
+    
     
 }
 .space {

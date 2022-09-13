@@ -13,6 +13,17 @@ body{
     
    
 }
+#progress-scroll{
+    position: fixed;
+    background-image: url('../../static/img/l3K.gif');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    display: flex;
+    margin-right: auto;
+    height: 20px;
+    background-color: #e3dfd3;
+}
 
 .header{
     min-height: 10%;
