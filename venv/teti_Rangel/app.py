@@ -180,7 +180,6 @@ def addFotoLista(listaFile = [], listaFilename = []):
 
 
 
-
  
 
           

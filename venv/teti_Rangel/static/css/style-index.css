@@ -4,7 +4,8 @@ body{
     
 }
 #container{
-    margin: auto;      
+    margin: auto;
+    min-width: 800px;      
     max-width: 80%;
     background-color: #e1e6e2;
     padding-bottom: 100px;

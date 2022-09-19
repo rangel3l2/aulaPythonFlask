@@ -122,7 +122,7 @@ const createCalc = (()=>{
             }else{buttonNumber.innerHTML=`<h1>Conv Real</h1>`}
                
                 
-                console.log(cont)
+                
                 $.ajax({
                     type: "POST",
                     url: '/calculadora',
