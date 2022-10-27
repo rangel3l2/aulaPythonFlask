@@ -1,9 +1,9 @@
-
+    
     const container = document.getElementById('container')
     const squares = document.createElement('div')
     squares.id = 'squares'
     container.appendChild(squares)
-document.addEventListener('DOMContentLoaded',dom)
+    document.addEventListener('DOMContentLoaded',dom)
 
 $.ajax({
     type: "POST",

@@ -1,130 +1,166 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>atividade semana</title>
-    <link rel="stylesheet" href="../static/css/style-index.css">
     
-</head>
-<body>
+    <link rel="stylesheet" href="../static/css/style-index.css" />
+  </head>
+  <body>
     <div id="container">
         <div id="progress-scroll"></div>
-     <div class="header">
+      <div id="faixa"></div>      
+      <div class="header">
         <div class="pic">
-            <img id="myPic" src="../static/img/perfil.jpg">
+          <img id="myPic" src="../static/img/perfil.jpg" />
         </div>
         <div class="title">
-            <h1>
-                TADS 6 - Tópicos Especiais em Tecnologia em da informação
-            </h1>
+          <h1>TADS 6 - Tópicos Especiais em Tecnologia em da informação</h1>
         </div>
-       
-     </div>
-        
-     <div class="content">
-        
-        <div class="vertical">
+      </div>
 
-        </div>
-      
-        <h1>
-            Semana 1
-        </h1>
-        <p>
-            Conteúdo: 
-        </p>
+      <div class="content">
+        <div class="vertical"></div>
+
+        <h1>Semana 1</h1>
+        <p>Conteúdo:</p>
         <ul>
-            <li><h3>Fazer reprodução do documento Unidades Curriculares</h3></li>
+          <li><h3>Fazer reprodução do documento Unidades Curriculares</h3></li>
 
-        
-
-        <a href="http://{{ request.host.split(':')[0] }}:5000/unidadeCurricular"><h3>Unidades Curriculares</h3></a>
+          <a
+            href="unidadeCurricular"
+            ><h3>Unidades Curriculares</h3></a
+          >
         </ul>
         <div class="vertical"></div>
-      
-        <h1>
-            Semana 2
-        </h1>
-        <p>
-            Conteúdo:
-        </p>
-        <ul>
-            <li><h3>Inseri o nome digitado debaixo terminal</h3></li>
-            <a href="http://{{ request.host.split(':')[0] }}:5000/lerForm"><h3>Formulário de inserção do nome</h3></a>
-            <li><h3>Tudo que estiver na lista em python vai aparecer na tela</h3></li>
-            <a href="http://{{ request.host.split(':')[0] }}:5000/lista"><h3>Formulário de inserção do nome</h3></a>
-        </ul>
-        <div class="vertical">
 
-        </div>
-      
-        <h1>
-            Semana 3
-        </h1>
+        <h1>Semana 2</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li><h3>Inseri o nome digitado debaixo terminal</h3></li>
+          <a href="lerForm"
+            ><h3>Formulário de inserção do nome</h3></a
+          >
+          <li>
+            <h3>Tudo que estiver na lista em python vai aparecer na tela</h3>
+          </li>
+          <a href="lista"
+            ><h3>Formulário de inserção do nome</h3></a
+          >
+        </ul>
+        <div class="vertical"></div>
+
+        <h1>Semana 3</h1>
         <p>Conteúdo: Manipulação e envio de dados entre Python e HTML</p>
         <ul>
-            <li><h3>Retornar os valores de captura de uma lista</h3></li>  
-            <a href="http://{{ request.host.split(':')[0] }}:5000/addNomeLista"><h3>Formulário para adicionar nome em lista</h3></a>
-       
-        <li><h3>Retornar e capturar os valores de um dicionario</h3></li>
-        <a href="http://{{ request.host.split(':')[0] }}:5000/addNomeDicionario"><h3>Formulário para adicionar nome em dicionário</h3></a>
-       
+          <li><h3>Retornar os valores de captura de uma lista</h3></li>
+          <a href="addNomeLista"
+            ><h3>Formulário para adicionar nome em lista</h3></a
+          >
+
+          <li><h3>Retornar e capturar os valores de um dicionario</h3></li>
+          <a
+            href="addNomeDicionario"
+            ><h3>Formulário para adicionar nome em dicionário</h3></a
+          >
         </ul>
-        <div class="vertical">
+        <div class="vertical"></div>
+        <h1>Semana 4</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li>
+            <h3>
+              Fazer calculadora que faça operações básicas e acrescentar nessa
+              calculadora conversão de decimal para binário
+            </h3>
+          </li>
 
-        </div>
-        <h1>
-            Semana 4
-        </h1>
-            <p>Conteúdo:</p> 
-                <ul>
-                   <li> <h3>Fazer calculadora que faça operações básicas e  acrescentar nessa calculadora conversão de decimal para binário</h3></li>
-                
-                
-                    <a href="http://{{ request.host.split(':')[0] }}:5000/calculadora"><h3>Calculadora Simples</h3></a>
-                    
-             
-                
-                   <li><h3>Crie outra calculadora alfanumérica que converta texto em binário
-                </h3></li>
-                
-                    <a href="http://{{ request.host.split(':')[0] }}:5000/calculadoraAlfanumerica"><h3>Calculadora Alfanumerica</h3></a>
-                 
+          <a href="calculadora"
+            ><h3>Calculadora Simples</h3></a
+          >
 
-                </ul>
+          <li>
+            <h3>
+              Crie outra calculadora alfanumérica que converta texto em binário
+            </h3>
+          </li>
 
-            <div class="vertical"></div>
-            <h1>Semana 5</h1>
-            <p>Conteúdo: </p> 
-            <ul>
-                <li><h3> Preencha uma quadrado de 512px por 512 px com div de 1 pixel cada</h3></li>
-                <a href="http://{{ request.host.split(':')[0] }}:5000/pixel"><h3>Quadrado preenchido cores randômica</h3></a>
-            </ul> 
-            <div class="vertical"></div>
-            <h1>Semana 6</h1>
-            <p>Conteúdo: </p> 
-            <ul>
-                <li><h3> Inserir fotos em um html e preencher uma lista de fotos em python</h3></li>
-                <a href="http://{{ request.host.split(':')[0] }}:5000/addFotoLista  "><h3>Inserir fotos html</h3></a>
-            </ul>        
-     </div>
+          <a
+            href="calculadoraAlfanumerica"
+            ><h3>Calculadora Alfanumerica</h3></a
+          >
+        </ul>
 
-     
+        <div class="vertical"></div>
+        <h1>Semana 5</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li>
+            <h3>
+              Preencha uma quadrado de 512px por 512 px com div de 1 pixel cada
+            </h3>
+          </li>
+          <a href="pixel"
+            ><h3>Quadrado preenchido cores randômica</h3></a
+          >
+        </ul>
+        <div class="vertical"></div>
+        <h1>Semana 6</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li>
+            <h3>
+              Inserir fotos em um html e preencher uma lista de fotos em python
+            </h3>
+          </li>
+          <a href="addFotoLista  "
+            ><h3>Inserir fotos html</h3></a
+          >
+        </ul>
+        <div class="vertical"></div>
+        <h1>Semana 7</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li>
+            <h3>
+              Inserir fotos em um html e converter a imagem para pixel e capturar novamente a imagem e depois girá-la
+            </h3>
+          </li>
+          <a href="converterPixel "
+            ><h3>Converter para Pixel</h3></a
+          >
+        </ul>
+        <div class="vertical"></div>
+        <h1>Semana 8</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li>
+            <h3>
+              Inserir fotos em um html e preencher uma lista de fotos em python
+            </h3>
+          </li>
+          <a href="addFotoLista  "
+            ><h3>Inserir fotos html</h3></a
+          >
+        </ul>
+        <div class="vertical"></div>
+        <h1>Semana 9</h1>
+        <p>Conteúdo:</p>
+        <ul>
+          <li>
+            <h3>
+              Comparar token do frontend com o backend flask
+            </h3>
+          </li>
+          <a href="apiteti"
+            ><h3>Verificar Token</h3></a
+          >
+        </ul>
+      </div>
     </div>
-    <script>
-        const progressScroll = document.querySelector('#progress-scroll')
-        const scrollable = document.documentElement.scrollHeight - window.innerHeight
-     
-        window.addEventListener('scroll',()=>{
-            
-            const scrolled = window.scrollY
-            progressScroll.style.width =  ` ${(scrolled*80)/scrollable}%`
-    
-        })
-    
-    </script>    
-</body>
-
+   
+  </body>
+  <script src="../static/js/teti.js"></script>  
 </html>

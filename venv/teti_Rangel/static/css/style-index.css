@@ -1,6 +1,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: #1e81b0;
     
 }
 #container{
@@ -11,10 +12,31 @@ body{
     padding-bottom: 100px;
     min-height: 500px;
     border-top: 1px solid transparent;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     
    
 }
+#faixa{
+    width: 100%;
+    height: 20px;
+    background-color: #44ebd7;
+    display: flex;
+    justify-content: center;
+    border-radius: 12px;
+    
+}
+.tirinhaInclinada{
+    width: 2%;  
+    background-color: black;
+    margin-right: 2.5%;
+    margin-left: 2.5%;
+    -webkit-transform: skew(-30deg); /* Chrome, Opera */
+      -ms-transform: skew(-30deg); /* IE */
+          transform: skew(-30deg); /* Padrão */
+}
 #progress-scroll{
+    
     position: fixed;
     background-image: url('../../static/img/l3K.gif');
     background-size: contain;
@@ -23,7 +45,7 @@ body{
     display: flex;
     margin-right: auto;
     height: 20px;
-    background-color: #e3dfd3;
+    
 }
 
 .header{

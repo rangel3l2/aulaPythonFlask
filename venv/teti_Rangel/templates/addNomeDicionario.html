@@ -1,51 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../static/css/formStyle.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/formStyle.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container">
-        <div id="formDiv">
-            <h1>Adicione aluno e nota em dicionário:</h1>
-            <form action="/addNomeDicionario" method="POST">             
-                   
-                    <input type="text" id="name" placeholder="Digite uma nome" name="nome" />
-                    <input type="text" id="name" placeholder="Digite uma nota" name="nota" />              
-                
-                    <button type="submit">Adicionar</button>      
-                    
-            </form>
-           
-    </div>
-    <div id="results">
+      <div id="formDiv">
+        <h1>Adicione aluno e nota em dicionário:</h1>
+        <form action="/addNomeDicionario" method="POST">
+          <input
+            type="text"
+            id="name"
+            placeholder="Digite uma nome"
+            name="nome"
+          />
+          <input
+            type="text"
+            id="name"
+            placeholder="Digite uma nota"
+            name="nota"
+          />
+
+          <button type="submit">Adicionar</button>
+        </form>
+      </div>
+      <div id="results">
         <table>
-            
-        {%for item in user %}
-    <tr>
-        <td>
-        
-            {{item.nome}}
-        </td>
-        <td>
-        
-            {{item.nota}}
-        </td>
-    </tr>
-        {% endfor %}
-        
-    
-          
-
-       
-    
-    </table>
-
+          {%for item in user %}
+          <tr>
+            <td>{{item.nome}}</td>
+            <td>{{item.nota}}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
     </div>
-    </div>
-    
-</body>
+  </body>
 </html>

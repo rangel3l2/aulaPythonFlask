@@ -15,22 +15,21 @@
 
             <form action="/addNomeLista" method="POST">                 
                    
-                    <input type="text" id="name" placeholder="Escreva um nome" name="nome" />              
-               
-                
-                    <button type="submit">Adicionar</button>          
+                <input type="text" id="name" placeholder="Escreva um nome" name="nome" />              
+              
+                <button type="submit">Adicionar</button>          
                     
             </form>
         </div>
     <div id="results">
-       <ol>
-        {%for item in listaNomes %}
-        <li>
-            {{item}}</br>
-        </li>
-       
-        {% endfor %}
-      </ol>
+        <ol>
+            {%for item in listaNomes %}
+            <li>
+                {{item}}</br>
+            </li>
+        
+            {% endfor %}
+        </ol>
     </div>
 
     

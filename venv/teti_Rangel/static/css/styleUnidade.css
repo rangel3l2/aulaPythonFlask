@@ -17,12 +17,13 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 80px;
+
     
    
 }
 
 table tr td{
-    border: 1px black solid;
+    border: 1px solid;
     
 }
 

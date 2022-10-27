@@ -1,8 +1,13 @@
+from array import array
 from ast import If
+from colorsys import rgb_to_hsv
 from crypt import methods
 from json import JSONEncoder
+from lib2to3.pgen2 import token
+from lib2to3.pytree import convert
 import numbers
 import os
+from sre_constants import SUCCESS
 import string
 from unittest import result
 from xml.etree.ElementTree import tostring
@@ -12,6 +17,9 @@ from random import randint
 from PIL import Image
 import base64
 import io
+import cv2
+import numpy as numpy
+import json
 
 
 
@@ -174,9 +182,51 @@ def addFotoLista(listaFile = [], listaFilename = []):
             image_string = image_string.decode('utf-8')
             listaFilename.append(filename[0])
             listaFile.append(image_string)
-           
+            
             return render_template('addFotoLista.html',listaFile = listaFile, listaFilename = listaFilename, zip=zip)
         return render_template('addFotoLista.html')
+
+@app.route('/converterPixel', methods = ['GET', 'POST'])
+def converterImagemPixel(numCols = 512, numRows = 512   ):
+   
+    if request.method == 'GET':
+        listaFile = ''
+        return render_template('addFotoLista.html',convertPixel = 'converterPixel')
+        
+    if request.method =='POST':        
+
+            
+        file = request.files['image']   
+        filename = file.filename.split('.') 
+        if file.filename != '':
+            img = cv2.imdecode(numpy.frombuffer(file.read(), numpy.uint8), cv2.IMREAD_UNCHANGED)
+            imgRBG = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            listRGB = imgRBG.tolist()
+            myArray = [[listRGB[i][j][k+1]for i in range(numCols)] for j in range(numRows)for k in range(1)]
+            
+
+            def rgb_to_hex(r,g,b):
+                return ('{:X}{:X}{:X}').format(r,g,b)
+                #print(f'rgb({myArray})')    
+
+            return render_template('converterPixel.html')
+
+
+@app.route('/apiteti', methods = ['POST', 'GET'])
+
+def blabla():
+    token =  'ABC'    
+    if request.method =='GET':
+        return  render_template('blabla.html')
+    
+    if request.method=='POST':
+        
+        tokenform = request.form.get('token')
+        
+     
+    if tokenform == token:
+        return render_template('blabla.html', msn =  'SUCCESS')
+    return render_template('blabla.html', msn = 'FAILURE')
 
 
 
