@@ -5,12 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="../static/js/appFormToken.js"></script>
 </head>
 <body>
-    <form action="/apiteti" method="POST">
+    <!-- <form action="/apiteti" method="POST">
         <input type="hidden" value="ABC" name="token" id="">
         <input type="submit" value="enviar"  id="">
-    </form>
+    </form> -->
+    <button onclick="resultado()">Clique aqui</button>
+    <div id="resultado">
+
+    </div>
 
     <div>
         {% if msn == 'SUCCESS'%}

@@ -20,7 +20,7 @@ import io
 import cv2
 import numpy as numpy
 import json
-
+from Usuario import Usuario
 
 
 app = Flask(__name__) 
@@ -228,7 +228,22 @@ def blabla():
         return render_template('blabla.html', msn =  'SUCCESS')
     return render_template('blabla.html', msn = 'FAILURE')
 
+@app.route('/validarUsuario',methods = ['POST', 'GET'])
+def validarUser():
+    if request.method == 'GET':
+        return render_template('validarUser.html')
+    if request.method == 'POST':
+        user = Usuario()        
+        user.nome = request.form.get('nome')
+        user.password = request.form.get('password')
+        print(user.nome,user.password)
+        validation = user.validate()
+        if validation:
+            return "validado com sucesso"
+        return "usuario e senha incorreto"
 
+    
+    
 
  
 
