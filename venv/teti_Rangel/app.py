@@ -175,7 +175,8 @@ def addFotoLista(listaFile = [], listaFilename = []):
         
     if request.method =='POST':         
         
-        file = request.files['image']   
+        file = request.files['image']  
+        print(file) 
         filename = file.filename.split('.') 
         if file.filename != '':
             image_string = base64.b64encode(file.read())
