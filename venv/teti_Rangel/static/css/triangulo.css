@@ -1,0 +1,115 @@
+* {box-sizing: border-box;}
+body {
+    font-family: sans-serif;
+    background-color: #eeeeee;
+    margin: 0;
+    padding: 0;
+  }
+#container{
+    margin: auto;      
+    max-width: 80%;
+    background-color: #e1e6e2;
+    padding-bottom: 100px;
+    min-height: 500px;
+    border-top: 1px solid transparent;
+    
+
+
+}
+#triangulo{
+   
+    
+    display: flex;
+    margin: auto;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+#triangulo-para-cima {
+ 
+    width: 0; 
+    height: 0; 
+    border-left:  solid transparent;
+    border-right:  solid transparent;
+    border-bottom: solid #5386E4;
+    
+  }
+  #grid{
+    display: flex   ;
+    justify-content: center;
+    border: 1px solid #5386E4;
+    border-radius: 5px;
+    width: 500px;
+    margin: auto;
+    align-content: center;
+    
+  }
+  #grid input[type="submit"]{
+    display: flex;
+    margin: auto;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #5386E4;
+    
+ 
+
+  }
+  #grid input[type="submit"]:hover{
+    border: 1px solid #5386E4;
+    background: #5386E4;
+    color: #ffffff;
+  }
+  #grid input[type="text"]{
+    padding: 10px;
+    display: flow-root;
+    border-radius: 5px;
+    margin: auto;
+    
+  }
+  #valor{
+    height: 100%;
+   
+    justify-content: center;
+    width: 15%;
+    background-color: #5386E4;
+    text-align: center;
+   
+  }
+  #valor button{
+    width: 100%;
+  }
+  #valor button:hover{
+    background-color: #5386E4;
+
+
+  }
+
+  #content{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    height: 300px;
+    background-color: green;
+  
+    flex-direction: row;
+    align-content: space-around;
+
+  }
+  #resultado{
+    height: 100%;
+   
+    justify-content: center;
+    width: 15%;
+    background-color: #5386E4;
+    text-align: left;
+    margin-left: 2%;
+    
+  }
+  #resultado p{
+    visibility: hidden;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+  }

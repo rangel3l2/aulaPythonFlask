@@ -21,7 +21,7 @@ import cv2
 import numpy as numpy
 import json
 from Usuario import Usuario
-
+from Triangulo import Triangulo
 
 app = Flask(__name__) 
 
@@ -242,7 +242,33 @@ def validarUser():
         if validation:
             return "validado com sucesso"
         return "usuario e senha incorreto"
-
+    
+@app.route('/triangulo',methods = ['POST', 'GET'])
+def trianguloProperties():
+    if request.method == 'GET':
+        return render_template('triangulo.html')
+    if request.method == 'POST':
+       tri = Triangulo()
+       tri.ladoA = int(request.form.get('ladoA'))
+       tri.ladoB = int(request.form.get('ladoB'))
+       tri.ladoC = int(request.form.get('ladoC'))
+       
+       perimetro = tri.getPerimetro()
+       maiorLado = tri.getMaiorLado()
+       area = tri.getArea()
+       print(perimetro)
+       return render_template('triangulo.html', perimetro = perimetro, area = area, maiorLado = maiorLado, ladoA = tri.ladoA, ladoB = tri.ladoB, ladoC = tri.ladoC)
+    
+@app.route('/carro',methods = ['POST', 'GET'])
+def carroProperties():
+    if request.method == 'GET':
+        return render_template('carro.html')
+    if request.method == 'POST':
+            tri = Triangulo()
+    
+    
+    return render_template('carro.html')   
+       
     
     
 

@@ -1,0 +1,90 @@
+* {box-sizing: border-box;}
+body {
+    font-family: sans-serif;
+    background-color: #eeeeee;
+    margin: 0;
+    padding: 0;
+  }
+#container{
+    margin: auto;      
+    max-width: 80%;
+    background-color: #e1e6e2;
+    padding-bottom: 100px;
+    min-height: 500px;
+    border-top: 1px solid transparent;
+    display: flex;
+    
+
+
+}
+.square {
+  width: 39.9px;
+  height: 39.9px;
+  border : 1px solid black
+  
+}
+#squares{
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: 2%;
+  background: white
+  
+
+
+}
+#gameCanvas{
+  flex-direction: column;
+  display: flex;
+  width: 700px;
+  height: 500px;
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+  background: rgb(122, 192, 133);
+  
+  
+}
+#carImagem{
+  object-fit: cover;
+  width: 39px;
+  height: 39px;
+  
+  
+
+}
+#divControllers{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 3%;
+}
+#buttonRight, buttonLeft, buttonShowMoves{
+  padding: 2%;
+  background-color: #e1e6e2;
+
+}
+#buttonRight:hover{
+
+  background-color:black;
+  color:white;
+  
+}
+#buttonLeft:hover{
+  
+  background-color:black;
+  color:white;
+}
+#buttonShowMoves:hover{
+  
+  background-color:black;
+  color:white;
+}
+

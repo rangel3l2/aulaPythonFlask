@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/triangulo.css">
+</head>
+<body>
+    <div id="container">
+    <div id="grid">
+    <form action="/triangulo" method="POST" onsubmit="enviarDados()" >
+        <label >Insira lado A de um triangulo</label>
+        <input type="text" id="ladoA"  onload="mudarBorder()" name="ladoA" value="{{ladoA}}"placeholder="insira lado A">
+        <br>
+        <label >Insira lado B de um triangulo</label>
+        <input type="text" id="ladoB"  name="ladoB" placeholder="insira lado B" value="{{ladoB}}" onchange="mudarBorder()">
+        <br>
+        <label >Insira lado C de um triangulo</label>
+        <input type="text" id="ladoC"  name="ladoC" placeholder="insira lado C" value="{{ladoC}}" onchange="mudarBorder()">
+        <br>
+        <input type="submit" value="Enviar"  >
+    </form>
+    </div>
+    <div id="content">
+       
+            <div id="valor">
+                <h3>Informações</h3>
+                <button onclick="perimetroF()"><p>Perimetro triangulo</p></button>
+                <button onclick="areaF()"><p>Área do triangulo</p></button>
+                <button onclick="maiorLadoF()"><p>Maior lado do triangulo</p></button>
+    
+            </div>
+            <div id="resultado">
+                <p id="perimetro">
+                Perimetro: {{perimetro}}
+                </p>
+                <p id="area" >
+                 Area:   {{area}}
+                </p>
+                <p id="maiorLado">
+                  Maior lado:  {{maiorLado}}
+                </p>
+
+            </div>
+            <div id="triangulo">
+            <div id="triangulo-para-cima">
+                
+            </div>
+        </div>
+    </div>
+  
+</div>
+<script>
+   
+   
+</script>
+<script src="../static/js/triangulo.js"></script>
+</body>
+</html>
