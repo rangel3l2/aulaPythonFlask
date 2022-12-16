@@ -131,7 +131,7 @@ function createButtonGeneral(){
     
  }
 
- IncreaseScreen()   
+ 
 
 
  }

@@ -22,10 +22,14 @@ import numpy as numpy
 import json
 from Usuario import Usuario
 from Triangulo import Triangulo
+from flask_sqlalchemy import SQLAlchemy
+
+
 
 app = Flask(__name__) 
+#mysql: // alex22:pass@host/nomeDB
 
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://alex22:Fg#6u2t5HpYT.DT@db4free.net:3306/tads_dw1'
 
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.webp']
@@ -267,8 +271,48 @@ def carroProperties():
             tri = Triangulo()
     
     
-    return render_template('carro.html')   
+    return   '<h1>Ola mundo</h1>' + render_template('carro.html')  
+
+
+ 
+db =SQLAlchemy(app)
+    
+@app.route('/curso', methods = ['GET', 'POST'])
+
+def course():
+    class curso(db.Model):
+        __table_args__ = {'extend_existing': True}
+        curso_id = db.Column(db.Integer, primary_key=True)
+        curso_nome=db.Column(db.String(45))
+        curso_descricao=db.Column(db.String(200))
+        curso_carga_horaria=db.Column(db.Integer)
+    
+    if request.method == 'GET':       
+        lista_de_cursos = []          
+        lista_de_cursos = curso.query.all()
+        print(f'listacurso{lista_de_cursos}')        
+        return render_template('addNomeCurso.html', lista_de_cursos=lista_de_cursos)
+    
+    if request.method == 'POST':
+        curso = curso(
+        curso_nome = request.form.get('curso_nome'),      
+        curso_descricao = request.form.get('curso_descricao'),
+        curso_carga_horaria = request.form.get('curso_carga_horaria')
+        )
+      
+        db.session.add(curso)
        
+        try:
+            db.session.commit()
+            return render_template('addNomeCurso.html' ,lista_de_cursos = 'Enviado com sucesso')
+        except:
+            return render_template('addNomeCurso.html' ,lista_de_cursos = 'não foi possivel enviar dados')
+            
+        
+               
+     
+    
+               
     
     
 

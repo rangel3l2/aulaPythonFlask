@@ -1,4 +1,5 @@
 import math
+
 class Triangulo:
     def __init__(self):
         self.ladoA = 0

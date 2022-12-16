@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/cursos.css">
+</head>
+<body>
+    <div id="container">
+        <h2>Cadastrar cursos</h2>
+        <form action="/curso" method="POST" >
+            <label >Nome do curso</label>
+            <input type="text" name="curso_nome">     
+            <label >Descrição</label>
+            <input type="text" name="curso_descricao">
+            <label >Carga Horaria</label>            
+            <input type="text" name="curso_carga_horaria">
+            <input type="submit" value="Enviar">
+  
+            
+
+    </form>
+    <h2>Ver cursos</h2>
+    {%for curso in lista_de_cursos%}
+    <li>curso</li>
+    {%endfor%}
+</div>
+</body>
+</html>
