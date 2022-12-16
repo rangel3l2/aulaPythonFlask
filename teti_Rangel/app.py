@@ -290,7 +290,7 @@ def course():
     if request.method == 'GET':       
         lista_de_cursos = []          
         lista_de_cursos = curso.query.all()
-        print(f'listacurso{lista_de_cursos}')        
+               
         return render_template('addNomeCurso.html', lista_de_cursos=lista_de_cursos)
     
     if request.method == 'POST':
@@ -308,8 +308,7 @@ def course():
         except:
             return render_template('addNomeCurso.html' ,lista_de_cursos = 'não foi possivel enviar dados')
             
-        
-               
+          
      
     
                
