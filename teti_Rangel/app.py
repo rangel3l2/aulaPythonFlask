@@ -1,42 +1,48 @@
-from array import array
-from ast import If
-from colorsys import rgb_to_hsv
-from crypt import methods
-from json import JSONEncoder
-from lib2to3.pgen2 import token
-from lib2to3.pytree import convert
-import numbers
 import os
-from sre_constants import SUCCESS
-import string
-from unittest import result
-from xml.etree.ElementTree import tostring
-from flask import Flask, render_template,redirect, request , jsonify
+import base64
+import cv2
+import numpy
+from flask import Flask, render_template, redirect, request, jsonify
 from py_expression_eval import Parser
 from random import randint
 from PIL import Image
-import base64
-import io
-import cv2
-import numpy as numpy
-import json
 from Usuario import Usuario
 from Triangulo import Triangulo
 from flask_sqlalchemy import SQLAlchemy
 
+# Initialize Flask
+app = Flask(__name__)
 
-
-app = Flask(__name__) 
-#mysql: // alex22:pass@host/nomeDB
-
+# Configure Flask-SQLAlchemy
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://alex22:Fg#6u2t5HpYT.DT@db4free.net:3306/tads_dw1'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    'pool_pre_ping': True,
+    'pool_recycle': 300,
+}
 
+# Other configs
 app.config['MAX_CONTENT_LENGTH'] = 1024 * 1024
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.png', '.webp']
 app.config['UPLOAD_PATH'] = 'uploads'
 app.config['IMAGE_UPLOADS'] = '/home/rangel3l/Documents/tads/AlexTETI/aulaPythonFlask/venv/teti_Rangel/static/img-upload'
 
+# Initialize SQLAlchemy with app context
+db = SQLAlchemy()
+db.init_app(app)
 
+# Define models
+class Curso(db.Model):
+    __tablename__ = 'curso'
+    __table_args__ = {'extend_existing': True}
+    curso_id = db.Column(db.Integer, primary_key=True)
+    curso_nome = db.Column(db.String(45))
+    curso_descricao = db.Column(db.String(200))
+    curso_carga_horaria = db.Column(db.Integer)
+
+# Create tables within app context
+with app.app_context():
+    db.create_all()
 
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
@@ -167,7 +173,6 @@ def Pixel(numCols = 512, numRows = 512):
             myArray = [['#%06X' % randint(0, 0xFFFFFF) for i in range(numCols)] for j in range(numRows)]
             myArray.append('#%06X' % randint(0, 0xFFFFFF))
                        
-          
             return {'resulted' : myArray}
 
 @app.route('/addFotoLista', methods = ['GET', 'POST'])
@@ -178,7 +183,7 @@ def addFotoLista(listaFile = [], listaFilename = []):
         return render_template('addFotoLista.html')
         
     if request.method =='POST':         
-        
+
         file = request.files['image']  
         print(file) 
         filename = file.filename.split('.') 
@@ -275,38 +280,28 @@ def carroProperties():
 
 
  
-db =SQLAlchemy(app)
-    
 @app.route('/curso', methods = ['GET', 'POST'])
 
 def course():
-    class curso(db.Model):
-        __table_args__ = {'extend_existing': True}
-        curso_id = db.Column(db.Integer, primary_key=True)
-        curso_nome=db.Column(db.String(45))
-        curso_descricao=db.Column(db.String(200))
-        curso_carga_horaria=db.Column(db.Integer)
-    
     if request.method == 'GET':       
-        lista_de_cursos = []          
-        lista_de_cursos = curso.query.all()
-               
+        lista_de_cursos = Curso.query.all()
         return render_template('addNomeCurso.html', lista_de_cursos=lista_de_cursos)
     
     if request.method == 'POST':
-        curso = curso(
-        curso_nome = request.form.get('curso_nome'),      
-        curso_descricao = request.form.get('curso_descricao'),
-        curso_carga_horaria = request.form.get('curso_carga_horaria')
+        novo_curso = Curso(
+            curso_nome=request.form.get('curso_nome'),      
+            curso_descricao=request.form.get('curso_descricao'),
+            curso_carga_horaria=request.form.get('curso_carga_horaria')
         )
       
-        db.session.add(curso)
+        db.session.add(novo_curso)
        
         try:
             db.session.commit()
-            return render_template('addNomeCurso.html' ,lista_de_cursos = 'Enviado com sucesso')
+            return render_template('addNomeCurso.html', lista_de_cursos='Enviado com sucesso')
         except:
-            return render_template('addNomeCurso.html' ,lista_de_cursos = 'não foi possivel enviar dados')
+            db.session.rollback()
+            return render_template('addNomeCurso.html', lista_de_cursos='não foi possivel enviar dados')
             
           
      
